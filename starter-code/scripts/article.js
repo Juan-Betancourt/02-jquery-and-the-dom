@@ -3,7 +3,7 @@
 let articles = [];
 
 // COMMENT: What is the purpose of the following function? Why is its name capitalized? Explain the context of "this" within the function. What does "rawDataObj" represent?
-// PUT YOUR RESPONSE HERE
+// PUT YOUR RESPONSE HERE - The name is capitalized because it is a constructor; however, JavaScript does not care whether you do this or not, but it is conventional in order to distinguish constructors. this refers to the instance of what will be pulled from and turn into an object. rawDataObj is reference to rawData and the parameters. 
 
 function Article(rawDataObj) {
     // TODO: Use the JS object that is passed in to complete this constructor function:
@@ -18,7 +18,7 @@ function Article(rawDataObj) {
 
 Article.prototype.toHtml = function() {
     // COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
-    // PUT YOUR RESPONSE HERE
+    // PUT YOUR RESPONSE HERE - Cloning allows you to make a copy of the selected elements and all their descendants. Furthermore, you could copy an entire set of event handlers.
 
     let $newArticle = $('article.template').clone();
     /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
@@ -28,12 +28,12 @@ Article.prototype.toHtml = function() {
     $newArticle.attr('data-category', this.category);
 
     /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
-      We need to fill in:
-        1. author name,
-        2. author url,
-        3. article title,
-        4. article body, and
-        5. publication date. */
+        We need to fill in:
+          1. author name,
+          2. author url,
+          3. article title,
+          4. article body, and
+          5. publication date. */
     $newArticle.find('h1').html(this.title);
     $newArticle.find('a').html(this.author);
     $newArticle.find('a').attr('href', 'this.authorUrl');
